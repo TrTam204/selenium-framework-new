@@ -2,20 +2,16 @@ package framework.base;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.firefox.*;
+
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -43,6 +39,8 @@ public class BaseTest {
                 options.addArguments("--headless=new");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--window-size=1920,1080");
             }
 
             driver = new ChromeDriver(options);
@@ -54,13 +52,17 @@ public class BaseTest {
 
             if (isCI) {
                 options.addArguments("-headless");
+
+                // 🔥 FIX LỖI FIREFOX CI (QUAN TRỌNG)
+                options.addPreference("dom.ipc.processCount", 1);
+                options.addPreference("browser.tabs.remote.autostart", false);
             }
 
             driver = new FirefoxDriver(options);
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://www.google.com"); // dùng google cho chắc chắn
+        driver.get("https://www.google.com");
 
         tlDriver.set(driver);
     }

@@ -27,13 +27,15 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Install Firefox
-        run: sudo apt-get update && sudo apt-get install -y firefox
+      - name: Install Firefox + dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y firefox xvfb
 
       - name: Run Selenium Tests
         run: |
           cd b1_SeleniumFramework
-          mvn clean test -Dbrowser=${{ matrix.browser }}
+          xvfb-run mvn clean test -Dbrowser=${{ matrix.browser }}
 
       - name: Upload Test Report
         if: always()
