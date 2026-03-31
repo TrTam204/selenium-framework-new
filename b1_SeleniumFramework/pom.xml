@@ -8,33 +8,25 @@
     <groupId>framework</groupId>
     <artifactId>b1_SeleniumFramework</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
-    <name>b1_SeleniumFramework</name>
-
-    <!-- ✅ FIX Java + Encoding -->
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
 
-        <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.18.1</version>
         </dependency>
 
-        <!-- WebDriverManager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.8.0</version>
         </dependency>
 
-        <!-- TestNG (KHÔNG có scope test) -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -46,45 +38,31 @@
             <artifactId>allure-testng</artifactId>
             <version>2.24.0</version>
         </dependency>
-        <dependency>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-testng</artifactId>   <!-- ✅ đúng -->
-        <version>2.24.0</version>
-    </dependency>
-        
+
     </dependencies>
 
     <build>
         <plugins>
 
-            <!-- Plugin compile -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <release>17</release>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
-              <plugin>
-             <groupId>io.qameta.allure</groupId>
-             <artifactId>allure-maven</artifactId>
-             <version>2.12.0</version>
-             </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+            </plugin>
 
-
-            <!-- Plugin chạy TestNG -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                </configuration>
             </plugin>
 
         </plugins>

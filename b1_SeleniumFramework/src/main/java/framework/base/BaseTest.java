@@ -2,16 +2,20 @@ package framework.base;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
-import org.openqa.selenium.firefox.*;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -52,8 +56,6 @@ public class BaseTest {
 
             if (isCI) {
                 options.addArguments("-headless");
-
-                // 🔥 FIX LỖI FIREFOX CI (QUAN TRỌNG)
                 options.addPreference("dom.ipc.processCount", 1);
                 options.addPreference("browser.tabs.remote.autostart", false);
             }
