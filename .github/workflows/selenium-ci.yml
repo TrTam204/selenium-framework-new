@@ -28,7 +28,7 @@ jobs:
       - name: Run Selenium Tests
         run: |
           cd b1_SeleniumFramework
-          mvn clean test -Dbrowser=${{ matrix.browser }} -Denv=dev -DsuiteXmlFile=testng-smoke.xml -Dheadless=true
+          mvn clean test -Dbrowser=${{ matrix.browser }} -Denv=dev -Dusername=${{ secrets.TEST_USERNAME }} -Dpassword=${{ secrets.TEST_PASS }} -DsuiteXmlFile=testng-smoke.xml -Dheadless=true
 
       - name: Upload Test Report
         if: always()
