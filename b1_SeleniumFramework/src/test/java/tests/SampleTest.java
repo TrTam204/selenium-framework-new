@@ -9,6 +9,11 @@ public class SampleTest extends BaseTest {
 
     @Test
     public void testPassDemo() {
-    Assert.assertTrue(true);
+        Assert.assertTrue(true);
+    }
+
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void testRetryDemo() {
+        Assert.assertTrue(false);
     }
 }
