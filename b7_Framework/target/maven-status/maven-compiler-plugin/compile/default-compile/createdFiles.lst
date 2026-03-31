@@ -1,0 +1,4 @@
+framework\base\BaseTest.class
+framework\pages\LoginPage.class
+framework\driver\DriverManager.class
+framework\pages\BasePage.class

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-17T17:38:01 ICT" name="Surefire suite" finished-at="2026-03-17T17:38:31 ICT" duration-ms="30695">
+    <groups>
+    </groups>
+    <test started-at="2026-03-17T17:38:01 ICT" name="Surefire test" finished-at="2026-03-17T17:38:31 ICT" duration-ms="30695">
+      <class name="tests.LoginDDTTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:02 ICT" name="setUp" finished-at="2026-03-17T17:38:06 ICT" duration-ms="4357" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:06 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T17:38:12 ICT" duration-ms="5706" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[fail]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[empty input]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:12 ICT" name="tearDown" finished-at="2026-03-17T17:38:16 ICT" duration-ms="4548" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginDDTTest.testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:16 ICT" name="setUp" finished-at="2026-03-17T17:38:18 ICT" duration-ms="2111" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:18 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T17:38:24 ICT" duration-ms="5570" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wrong_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[wrong_pass]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[fail]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[invalid login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:24 ICT" name="tearDown" finished-at="2026-03-17T17:38:24 ICT" duration-ms="286" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginDDTTest.testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:24 ICT" name="setUp" finished-at="2026-03-17T17:38:25 ICT" duration-ms="1206" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dev]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:25 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T17:38:31 ICT" duration-ms="5211" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[success]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[valid login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:tests.LoginDDTTest@71b1176b]" started-at="2026-03-17T17:38:31 ICT" name="tearDown" finished-at="2026-03-17T17:38:31 ICT" duration-ms="713" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testLogin status=SUCCESS method=LoginDDTTest.testLogin(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:tests.LoginDDTTest@71b1176b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.LoginDDTTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

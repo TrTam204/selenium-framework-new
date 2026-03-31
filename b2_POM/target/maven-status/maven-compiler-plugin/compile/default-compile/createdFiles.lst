@@ -1,0 +1,6 @@
+framework\App.class
+framework\pages\InventoryPage.class
+framework\base\BasePage.class
+framework\base\BaseTest.class
+framework\pages\LoginPage.class
+framework\pages\CartPage.class

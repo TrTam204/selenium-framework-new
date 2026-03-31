@@ -1,0 +1,37 @@
+﻿[
+  {
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "role": "user",
+    "expectSuccess": true,
+    "description": "valid login"
+  },
+  {
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "role": "user",
+    "expectSuccess": false,
+    "description": "locked user"
+  },
+  {
+    "username": "invalid_user",
+    "password": "wrong_pass",
+    "role": "user",
+    "expectSuccess": false,
+    "description": "invalid login"
+  },
+  {
+    "username": "",
+    "password": "",
+    "role": "user",
+    "expectSuccess": false,
+    "description": "empty input"
+  },
+  {
+    "username": "standard_user",
+    "password": "wrong_pass",
+    "role": "user",
+    "expectSuccess": false,
+    "description": "edge case login"
+  }
+]

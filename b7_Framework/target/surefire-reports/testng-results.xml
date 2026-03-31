@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-17T20:04:28 ICT" name="Surefire suite" finished-at="2026-03-17T20:04:40 ICT" duration-ms="11469">
+    <groups>
+    </groups>
+    <test started-at="2026-03-17T20:04:28 ICT" name="Surefire test" finished-at="2026-03-17T20:04:40 ICT" duration-ms="11469">
+      <class name="LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:35 ICT" name="setUp" finished-at="2026-03-17T20:04:36 ICT" duration-ms="1003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String)[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:36 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T20:04:37 ICT" duration-ms="1086" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:37 ICT" name="tearDown" finished-at="2026-03-17T20:04:37 ICT" duration-ms="181" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:37 ICT" name="setUp" finished-at="2026-03-17T20:04:38 ICT" duration-ms="946" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String)[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:38 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T20:04:39 ICT" duration-ms="1045" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[problem_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:LoginTest@5be6e01c]" started-at="2026-03-17T20:04:39 ICT" name="tearDown" finished-at="2026-03-17T20:04:40 ICT" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- LoginTest -->
+      <class name="DemoTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:28 ICT" name="setUp" finished-at="2026-03-17T20:04:31 ICT" duration-ms="2946" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String)[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:31 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T20:04:32 ICT" duration-ms="1422" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[standard_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:32 ICT" name="tearDown" finished-at="2026-03-17T20:04:33 ICT" duration-ms="294" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:33 ICT" name="setUp" finished-at="2026-03-17T20:04:34 ICT" duration-ms="1102" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String)[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:34 ICT" name="testLogin" data-provider="loginData" finished-at="2026-03-17T20:04:35 ICT" duration-ms="963" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[problem_user]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[secret_sauce]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:DemoTest@12b0404f]" started-at="2026-03-17T20:04:35 ICT" name="tearDown" finished-at="2026-03-17T20:04:35 ICT" duration-ms="197" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- DemoTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
