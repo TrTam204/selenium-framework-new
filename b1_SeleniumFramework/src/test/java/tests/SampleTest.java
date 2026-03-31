@@ -8,13 +8,8 @@ import framework.base.BaseTest;
 public class SampleTest extends BaseTest {
 
     @Test
-    public void testPassDemo() {
-        Assert.assertTrue(true);
+    public void testGridDemo() {
+        String url = getDriver().getCurrentUrl();
+        Assert.assertTrue(url.contains("saucedemo"));
     }
-
-    // ❌ COMMENT lại để CI pass
-    // @Test(retryAnalyzer = RetryAnalyzer.class)
-    // public void testRetryDemo() {
-    //     Assert.assertTrue(false);
-    // }
 }

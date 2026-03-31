@@ -10,10 +10,12 @@ on:
 jobs:
   run-test:
     runs-on: ubuntu-latest
+
     strategy:
+      fail-fast: false
       matrix:
         browser: [chrome, firefox]
-      fail-fast: false
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,16 +27,26 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # ✅ Đảm bảo có Firefox
+      - name: Install Firefox
+        run: sudo apt-get update && sudo apt-get install -y firefox
+
+      # ✅ Chạy test
       - name: Run Selenium Tests
         run: |
           cd b1_SeleniumFramework
-          mvn clean test -Dbrowser=${{ matrix.browser }} -Denv=dev -Dusername=${{ secrets.TEST_USERNAME }} -Dpassword=${{ secrets.TEST_PASS }} -DsuiteXmlFile=testng-smoke.xml -Dheadless=true
+          mvn clean test \
+          -Dbrowser=${{ matrix.browser }} \
+          -Denv=dev \
+          -Dusername=${{ secrets.TEST_USERNAME }} \
+          -Dpassword=${{ secrets.TEST_PASS }} \
+          -DsuiteXmlFile=testng-smoke.xml
 
+      # ✅ Upload artifact (luôn chạy kể cả fail)
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-result-${{ matrix.browser }}
           path: |
-            b1_SeleniumFramework/target/surefire-reports/
-            b1_SeleniumFramework/target/screenshots/
+            b1_SeleniumFramework/target/
