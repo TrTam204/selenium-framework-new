@@ -10,7 +10,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+    steps:
+    - uses: actions/checkout@v4
     strategy:
       fail-fast: false
       matrix:
@@ -25,11 +31,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-
+      - name: wait for selenium to be ready
+        run: sleep 10
     # ✅ FIX: đảm bảo có firefox
     - name: Install Firefox
       run: sudo apt-get update && sudo apt-get install -y firefox
-
     - name: Run tests
       run: |
         cd b1_SeleniumFramework
