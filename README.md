@@ -1,4 +1,4 @@
 # Selenium Automation Framework
-## Project by Nguyễn Hồ Trường Tam
-## Run local
-mvn clean test -DBrowser=chrome 
+## Project By Nguyễn Hồ Trường Tam
+### Run local
+mvn test -Dbrowser=chrome
