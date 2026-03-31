@@ -50,3 +50,13 @@ jobs:
           name: test-result-${{ matrix.browser }}
           path: |
             b1_SeleniumFramework/target/
+
+        - name: Generate Allure Report
+        run: |
+          cd b1_SeleniumFramework
+          mvn allure:report
+      - name: Upload Allure Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-report
+        path: b1_SeleniumFramework/target/site/allure-maven-plugin/

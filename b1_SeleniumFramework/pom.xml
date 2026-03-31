@@ -46,6 +46,11 @@
             <artifactId>allure-testng</artifactId>
             <version>2.24.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-testng</artifactId>
+            <version>2.24.0</version>
+        </dependency>
     </dependencies>
 
     <build>
