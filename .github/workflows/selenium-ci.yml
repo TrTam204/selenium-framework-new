@@ -36,6 +36,8 @@ jobs:
         mvn clean test \
         -Dbrowser=${{ matrix.browser }} \
         -Denv=dev \
+        -Dusername=${{ secrets.TEST_USERNAME }} \
+        -Dpassword=${{ secrets.TEST_PASS }} \
         -DsuiteXmlFile=testng-smoke.xml
 
     # ✅ FIX: đúng path + đúng chuẩn chấm điểm
