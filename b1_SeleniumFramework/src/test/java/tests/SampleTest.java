@@ -7,7 +7,7 @@ import framework.base.BaseTest;
 
 public class SampleTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void testPassDemo() {
         Assert.assertTrue(true);
     }
