@@ -10,17 +10,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, firefox] 
     services:
       selenium:
         image: selenium/standalone-chrome:latest
         ports:
           - 4444:4444
     steps:
-    - uses: actions/checkout@v4
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chrome, firefox]   # ✅ đúng đề
+    - uses: actions/checkout@v4  # ✅ đúng đề
 
 
     - name: Set up JDK 17
