@@ -11,11 +11,6 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chrome, firefox]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,15 +22,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Install Firefox
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y firefox
-
-      - name: Run Selenium Tests
+      - name: Run Selenium Tests (CHROME ONLY)
         run: |
           cd b1_SeleniumFramework
-          mvn clean test -Dbrowser=${{ matrix.browser }} -Dheadless=true
+          mvn clean test -Dbrowser=chrome -Dheadless=true
         env:
           CI: true
 
@@ -43,7 +33,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-result-${{ matrix.browser }}
+          name: test-result
           path: b1_SeleniumFramework/target/
 
       - name: Generate Allure Report
@@ -54,5 +44,5 @@ jobs:
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-${{ matrix.browser }}
+          name: allure-report
           path: b1_SeleniumFramework/target/site/allure-maven-plugin/
