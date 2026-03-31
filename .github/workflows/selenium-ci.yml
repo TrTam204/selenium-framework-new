@@ -27,11 +27,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # ✅ Đảm bảo có Firefox
       - name: Install Firefox
         run: sudo apt-get update && sudo apt-get install -y firefox
 
-      # ✅ Chạy test
       - name: Run Selenium Tests
         run: |
           cd b1_SeleniumFramework
@@ -42,21 +40,23 @@ jobs:
           -Dpassword=${{ secrets.TEST_PASS }} \
           -DsuiteXmlFile=testng-smoke.xml
 
-      # ✅ Upload artifact (luôn chạy kể cả fail)
+      # ✅ Upload test results
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-result-${{ matrix.browser }}
-          path: |
-            b1_SeleniumFramework/target/
+          path: b1_SeleniumFramework/target/
 
+      # ✅ Generate Allure
       - name: Generate Allure Report
         run: |
           cd b1_SeleniumFramework
           mvn allure:report
+
+      # ✅ Upload Allure
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-        name: allure-report
-        path: b1_SeleniumFramework/target/site/allure-maven-plugin/
+          name: allure-report-${{ matrix.browser }}
+          path: b1_SeleniumFramework/target/site/allure-maven-plugin/
