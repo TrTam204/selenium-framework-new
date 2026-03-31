@@ -51,7 +51,7 @@ jobs:
           path: |
             b1_SeleniumFramework/target/
 
-        -name: Generate Allure Report
+      - name: Generate Allure Report
         run: |
           cd b1_SeleniumFramework
           mvn allure:report
