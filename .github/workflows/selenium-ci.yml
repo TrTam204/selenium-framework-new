@@ -33,14 +33,8 @@ jobs:
       - name: Run Selenium Tests
         run: |
           cd b1_SeleniumFramework
-          mvn clean test \
-          -Dbrowser=${{ matrix.browser }} \
-          -Denv=dev \
-          -Dusername=${{ secrets.TEST_USERNAME }} \
-          -Dpassword=${{ secrets.TEST_PASS }} \
-          -DsuiteXmlFile=testng-smoke.xml
+          mvn clean test -Dbrowser=${{ matrix.browser }}
 
-      # ✅ Upload test results
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,13 +42,11 @@ jobs:
           name: test-result-${{ matrix.browser }}
           path: b1_SeleniumFramework/target/
 
-      # ✅ Generate Allure
       - name: Generate Allure Report
         run: |
           cd b1_SeleniumFramework
           mvn allure:report
 
-      # ✅ Upload Allure
       - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:

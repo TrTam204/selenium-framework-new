@@ -7,8 +7,8 @@ import framework.base.BaseTest;
 
 public class SampleTest extends BaseTest {
 
-@Test
-public void testPassDemo() {
-    Assert.assertTrue(true);
-}
+    @Test
+    public void testPassDemo() {
+        Assert.assertTrue(true);
+    }
 }

@@ -2,15 +2,15 @@ package framework.base;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,28 +27,44 @@ public class BaseTest {
         return tlDriver.get();
     }
 
+    @Parameters({"browser"})
+    @BeforeMethod
+    public void setUp(@Optional("chrome") String browser) {
 
-@Parameters({"browser", "env"})
-@BeforeMethod
-public void setUp(@Optional("chrome") String browser,
-                  @Optional("dev") String env) {
+        boolean isCI = System.getenv("CI") != null;
+        WebDriver driver;
 
-    WebDriverManager.chromedriver().setup();
+        if (browser.equalsIgnoreCase("chrome")) {
 
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless=new");        // 🔥 bắt buộc
-    options.addArguments("--no-sandbox");          // 🔥 bắt buộc
-    options.addArguments("--disable-dev-shm-usage"); // 🔥 bắt buộc
-    options.addArguments("--disable-gpu");
-    options.addArguments("--window-size=1920,1080");
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
 
-    WebDriver driver = new ChromeDriver(options);
+            if (isCI) {
+                options.addArguments("--headless=new");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+            }
 
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    driver.get("https://www.saucedemo.com");
+            driver = new ChromeDriver(options);
 
-    tlDriver.set(driver);
-}
+        } else {
+
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+
+            if (isCI) {
+                options.addArguments("-headless");
+            }
+
+            driver = new FirefoxDriver(options);
+        }
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.get("https://www.google.com"); // dùng google cho chắc chắn
+
+        tlDriver.set(driver);
+    }
+
     @AfterMethod
     public void tearDown(ITestResult result) {
 
@@ -62,17 +78,12 @@ public void setUp(@Optional("chrome") String browser,
         }
     }
 
-    private void takeScreenshot(String testName) {
+    private void takeScreenshot(String name) {
         try {
-            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
-                    .format(new Date());
-
             File src = ((TakesScreenshot) getDriver())
                     .getScreenshotAs(OutputType.FILE);
 
-            File dest = new File("target/screenshots/"
-                    + testName + "_" + timestamp + ".png");
-
+            File dest = new File("target/screenshots/" + name + ".png");
             dest.getParentFile().mkdirs();
 
             Files.copy(src.toPath(), dest.toPath());
