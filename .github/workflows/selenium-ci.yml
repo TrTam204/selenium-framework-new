@@ -22,7 +22,7 @@ jobs:
         cache: 'maven' # Bật Maven cache
 
     - name: Build and Test with Maven
-      run: mvn clean test -Dbrowser=chrome -Denv=dev -DsuiteXmlFile=testng-smoke.xml
+      run: cd b1_SeleniumFramework && mvn clean test -Dbrowser=chrome -Denv=dev -DsuiteXmlFile=testng-smoke.xml
 
 
     - name: Upload Test Reports
